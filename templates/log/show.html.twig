@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log{% endblock %}
+
+{% block body %}
+    <h1>Log</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ log.id }}</td>
+            </tr>
+            <tr>
+                <th>CoverLetter</th>
+                <td>{{ log.CoverLetter }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ log.Date ? log.Date|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Driver</th>
+                <td>{{ log.Driver }}</td>
+            </tr>
+            <tr>
+                <th>TruckID</th>
+                <td>{{ log.TruckID }}</td>
+            </tr>
+            <tr>
+                <th>Size</th>
+                <td>{{ log.Size }}</td>
+            </tr>
+            <tr>
+                <th>Location</th>
+                <td>{{ log.Location }}</td>
+            </tr>
+            <tr>
+                <th>TimeLeaving</th>
+                <td>{{ log.TimeLeaving ? log.TimeLeaving|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>EventLocation</th>
+                <td>{{ log.EventLocation }}</td>
+            </tr>
+            <tr>
+                <th>EventName</th>
+                <td>{{ log.EventName }}</td>
+            </tr>
+            <tr>
+                <th>UserID</th>
+                <td>{{ log.UserID }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('log_index') }}">back to list</a>
+
+    <a href="{{ path('log_edit', {'id': log.id}) }}">edit</a>
+
+    {{ include('log/_delete_form.html.twig') }}
+{% endblock %}
